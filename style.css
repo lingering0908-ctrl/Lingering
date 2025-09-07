@@ -278,6 +278,42 @@ body {
     box-shadow: 0 2px 4px rgba(217, 119, 166, 0.1);
 }
 
+.copy-btn {
+    background: linear-gradient(135deg, #d977a6, #a855a0);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(217, 119, 166, 0.2);
+}
+
+.copy-btn:hover {
+    background: linear-gradient(135deg, #a855a0, #8b2c7a);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(217, 119, 166, 0.3);
+}
+
+.copy-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(217, 119, 166, 0.2);
+}
+
+.copy-icon {
+    font-size: 14px;
+}
+
+.copy-text {
+    font-size: 11px;
+}
+
 .shop-btn {
     display: inline-block;
     background: linear-gradient(135deg, #f0d4e0, #d977a6);

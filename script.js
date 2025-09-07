@@ -175,6 +175,78 @@ function backToQuiz() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// 複製優惠碼功能
+function copyCouponCode() {
+    const couponCode = document.getElementById('coupon-code').textContent;
+    
+    // 使用現代瀏覽器的 Clipboard API
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(couponCode).then(() => {
+            showCopySuccess();
+        }).catch(() => {
+            fallbackCopyTextToClipboard(couponCode);
+        });
+    } else {
+        // 降級方案：使用傳統方法
+        fallbackCopyTextToClipboard(couponCode);
+    }
+}
+
+// 降級複製方案
+function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+    textArea.style.opacity = "0";
+    
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+            showCopySuccess();
+        } else {
+            showCopyError();
+        }
+    } catch (err) {
+        showCopyError();
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+// 顯示複製成功提示
+function showCopySuccess() {
+    const copyBtn = document.querySelector('.copy-btn');
+    const originalContent = copyBtn.innerHTML;
+    
+    copyBtn.innerHTML = '<span class="copy-icon">✅</span><span class="copy-text">已複製!</span>';
+    copyBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+    
+    setTimeout(() => {
+        copyBtn.innerHTML = originalContent;
+        copyBtn.style.background = 'linear-gradient(135deg, #d977a6, #a855a0)';
+    }, 2000);
+}
+
+// 顯示複製失敗提示
+function showCopyError() {
+    const copyBtn = document.querySelector('.copy-btn');
+    const originalContent = copyBtn.innerHTML;
+    
+    copyBtn.innerHTML = '<span class="copy-icon">❌</span><span class="copy-text">複製失敗</span>';
+    copyBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+    
+    setTimeout(() => {
+        copyBtn.innerHTML = originalContent;
+        copyBtn.style.background = 'linear-gradient(135deg, #d977a6, #a855a0)';
+    }, 2000);
+}
+
 // 防止頁面刷新時的問題
 window.addEventListener('beforeunload', function() {
     // 清理可能的動畫狀態
