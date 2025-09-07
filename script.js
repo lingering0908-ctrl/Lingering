@@ -182,23 +182,3 @@ window.addEventListener('beforeunload', function() {
     document.body.style.webkitTransform = '';
 });
 
-// 處理網頁預覽的載入錯誤
-document.addEventListener('DOMContentLoaded', function() {
-    const iframe = document.querySelector('iframe');
-    if (iframe) {
-        iframe.addEventListener('error', function() {
-            // 如果網頁無法載入，顯示替代內容
-            this.style.display = 'none';
-            const preview = this.parentElement;
-            preview.innerHTML = `
-                <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: linear-gradient(135deg, #ffb3d9, #ffc0cb); border-radius: 10px; color: #8b2c7a; font-size: 16px; text-align: center; padding: 20px;">
-                    <div>
-                        <div style="font-size: 40px; margin-bottom: 10px;">🛍️</div>
-                        <div>Lingering Accessories</div>
-                        <div style="font-size: 14px; margin-top: 5px;">點擊上方按鈕前往官網</div>
-                    </div>
-                </div>
-            `;
-        });
-    }
-});

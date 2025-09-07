@@ -270,21 +270,6 @@ body {
     box-shadow: 0 6px 20px rgba(240, 212, 224, 0.35);
 }
 
-.website-preview {
-    background: white;
-    border-radius: 15px;
-    padding: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    aspect-ratio: 9/16;
-    overflow: hidden;
-}
-
-.website-preview iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 10px;
-}
 
 .footer {
     text-align: center;
