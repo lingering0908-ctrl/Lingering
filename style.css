@@ -267,32 +267,39 @@ body {
     color: #a855a0;
 }
 
-.coupon-code-text {
-    color: #d977a6;
+.coupon-code-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     background: linear-gradient(135deg, #fff, #fefbfc);
     padding: 4px 8px;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid #f0d4e0;
+    box-shadow: 0 2px 4px rgba(217, 119, 166, 0.1);
+}
+
+.coupon-code-text {
+    color: #d977a6;
     font-family: 'Courier New', monospace;
     letter-spacing: 1px;
-    box-shadow: 0 2px 4px rgba(217, 119, 166, 0.1);
+    font-weight: bold;
 }
 
 .copy-btn {
     background: linear-gradient(135deg, #d977a6, #a855a0);
     color: white;
     border: none;
-    border-radius: 8px;
-    padding: 6px 12px;
-    margin-left: 10px;
+    border-radius: 6px;
+    padding: 4px 8px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(217, 119, 166, 0.2);
+    box-shadow: 0 1px 3px rgba(217, 119, 166, 0.2);
+    min-width: 50px;
 }
 
 .copy-btn:hover {
@@ -307,11 +314,11 @@ body {
 }
 
 .copy-icon {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .copy-text {
-    font-size: 11px;
+    font-size: 9px;
 }
 
 .shop-btn {
